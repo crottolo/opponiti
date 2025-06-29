@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -10,7 +11,6 @@ import {
   ShieldCheck, 
   AlertTriangle, 
   Gavel, 
-  TrendingUp, 
   Users, 
   DollarSign, 
   CheckCircle, 
@@ -18,16 +18,13 @@ import {
   Phone,
   Star,
   ArrowRight,
-  Zap,
   Target,
   Award,
   Globe,
   Mail,
   MapPin,
   Sparkles,
-  MessageCircle,
-  Bot,
-  Timer
+  MessageCircle
 } from "lucide-react"
 
 const fadeInUp = {
@@ -42,11 +39,6 @@ const staggerContainer = {
       staggerChildren: 0.1
     }
   }
-}
-
-const scaleOnHover = {
-  whileHover: { scale: 1.05 },
-  transition: { type: "spring", stiffness: 300 }
 }
 
 const glowAnimation = {
@@ -83,7 +75,7 @@ export default function Home() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <a href="/" className="flex items-center space-x-3">
+            <Link href="/" className="flex items-center space-x-3">
               <motion.div 
                 className="w-10 h-10 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center shadow-2xl"
                 whileHover={{ 
@@ -97,7 +89,7 @@ export default function Home() {
               <span className="text-2xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
                 Opponiti
               </span>
-            </a>
+            </Link>
             <div className="hidden md:flex items-center space-x-8">
               <a href="#problema" className="text-gray-300 hover:text-red-400 transition-colors font-medium">Il Problema</a>
               <a href="#soluzione" className="text-gray-300 hover:text-emerald-400 transition-colors font-medium">La Soluzione</a>
@@ -211,7 +203,7 @@ export default function Home() {
                 <Sparkles className="w-8 h-8 text-emerald-400 ml-3" />
               </div>
               <p className="text-lg text-emerald-100 text-center">
-                Invece di spendere milioni in pubblicità, <span className="font-bold text-white">ti paghiamo per usare l'app</span>!
+                Invece di spendere milioni in pubblicità, <span className="font-bold text-white">ti paghiamo per usare l&apos;app</span>!
               </p>
             </motion.div>
 
@@ -715,7 +707,7 @@ export default function Home() {
 
                   <div>
                     <label className="block text-lg font-semibold text-white mb-4">
-                      Ti interesserebbe ricevere €1 subito per iscriverti ad un'app anti-telemarketing?
+                      Ti interesserebbe ricevere €1 subito per iscriverti ad un&apos;app anti-telemarketing?
                     </label>
                     <div className="space-y-3">
                       {['Assolutamente sì!', 'Molto interessante', 'Devo saperne di più', 'Sembra troppo bello per essere vero'].map((option) => (
@@ -755,7 +747,7 @@ export default function Home() {
             viewport={{ once: true }}
           >
             <h2 className="text-5xl md:text-6xl font-black text-white mb-6">
-              Scarica l'<span className="bg-gradient-to-r from-emerald-400 to-emerald-600 bg-clip-text text-transparent">App</span>
+              Scarica l&apos;<span className="bg-gradient-to-r from-emerald-400 to-emerald-600 bg-clip-text text-transparent">App</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Proteggi il tuo telefono e inizia a guadagnare. Disponibile presto su App Store e Google Play.
@@ -770,12 +762,12 @@ export default function Home() {
             viewport={{ once: true }}
           >
             <div>
-              <h3 className="text-3xl font-bold text-white mb-8">Cosa Include l'App</h3>
+              <h3 className="text-3xl font-bold text-white mb-8">Cosa Include l&apos;App</h3>
               <div className="space-y-6">
                 {[
                   { 
                     title: "Identificazione Chiamate", 
-                    desc: "Vedi subito se una chiamata è da un'azienda certificata o sospetta",
+                    desc: "Vedi subito se una chiamata è da un&apos;azienda certificata o sospetta",
                     icon: ShieldCheck,
                     color: "emerald"
                   },
@@ -787,7 +779,7 @@ export default function Home() {
                   },
                   { 
                     title: "Guadagni Automatici", 
-                    desc: "€1 per l'iscrizione + €1 per ogni referral + quota cause vinte",
+                    desc: "€1 per l&apos;iscrizione + €1 per ogni referral + quota cause vinte",
                     icon: DollarSign,
                     color: "yellow"
                   }
@@ -825,7 +817,7 @@ export default function Home() {
                       Notificami al Lancio
                     </CardTitle>
                     <CardDescription className="text-lg text-gray-300">
-                      Sii tra i primi a scaricare l'app e ricevi €1 bonus extra
+                      Sii tra i primi a scaricare l&apos;app e ricevi €1 bonus extra
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-4">
