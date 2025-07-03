@@ -1,4 +1,4 @@
-import { CardSpotlight } from "@/components/ui/card-spotlight"
+import { GradientCard } from "@/components/ui/card-variants"
 import { 
   Users, 
   Phone, 
@@ -7,10 +7,34 @@ import {
 } from "lucide-react"
 
 const stats = [
-  { number: "87%", desc: "degli italiani riceve chiamate indesiderate", icon: Users },
-  { number: "6.2", desc: "chiamate spam al giorno in media", icon: Phone },
-  { number: "73%", desc: "usa numeri esteri per eludere controlli", icon: Shield },
-  { number: "€0", desc: "conseguenze reali per chi abusa", icon: DollarSign }
+  { 
+    number: "87%", 
+    desc: "degli italiani riceve chiamate indesiderate", 
+    icon: Users,
+    variant: "red" as const,
+    color: "text-red-400"
+  },
+  { 
+    number: "6.2", 
+    desc: "chiamate spam al giorno in media", 
+    icon: Phone,
+    variant: "red" as const,
+    color: "text-red-400"
+  },
+  { 
+    number: "73%", 
+    desc: "usa numeri esteri per eludere controlli", 
+    icon: Shield,
+    variant: "red" as const,
+    color: "text-red-400"
+  },
+  { 
+    number: "€0", 
+    desc: "conseguenze reali per chi abusa", 
+    icon: DollarSign,
+    variant: "red" as const,
+    color: "text-red-400"
+  }
 ]
 
 export function StatsContent() {
@@ -28,15 +52,19 @@ export function StatsContent() {
 
         <div className="grid md:grid-cols-4 gap-6">
           {stats.map((stat, index) => (
-            <div key={index}>
-              <CardSpotlight className="border-neutral-700 bg-neutral-950/90 h-full">
-                <div className="relative z-20 p-6 text-center">
-                  <stat.icon className="w-8 h-8 mx-auto mb-4 text-red-400" />
-                  <div className="text-3xl font-bold text-white mb-2">{stat.number}</div>
-                  <p className="text-sm text-zinc-400">{stat.desc}</p>
+            <GradientCard 
+              key={index} 
+              variant={stat.variant}
+              containerClassName="h-full"
+            >
+              <div className="text-center">
+                <div className="mb-4 mx-auto w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center">
+                  <stat.icon className={`w-6 h-6 ${stat.color}`} />
                 </div>
-              </CardSpotlight>
-            </div>
+                <div className="text-3xl font-bold text-white mb-3">{stat.number}</div>
+                <p className="text-sm text-neutral-300 leading-relaxed">{stat.desc}</p>
+              </div>
+            </GradientCard>
           ))}
         </div>
       </div>

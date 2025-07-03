@@ -1,4 +1,5 @@
 import { CheckCircle } from "lucide-react"
+import { GradientCard } from "@/components/ui/card-variants"
 
 const userBenefits = [
   "Identificazione immediata chiamate legittime",
@@ -27,32 +28,32 @@ export function BenefitsContent() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Benefits List */}
-          <div>
-            <h3 className="text-2xl font-bold text-white mb-8">Vantaggi per gli Utenti</h3>
-            <div className="space-y-6">
+        <div className="grid lg:grid-cols-2 gap-8">
+          {/* User Benefits Card */}
+          <GradientCard variant="emerald" containerClassName="h-full">
+            <h3 className="text-2xl font-bold text-white mb-6">Vantaggi per gli Utenti</h3>
+            <div className="space-y-4">
               {userBenefits.map((benefit, index) => (
                 <div key={index} className="flex items-center space-x-3">
                   <CheckCircle className="w-5 h-5 text-emerald-400 flex-shrink-0" />
-                  <span className="text-zinc-300">{benefit}</span>
+                  <span className="text-neutral-300">{benefit}</span>
                 </div>
               ))}
             </div>
-          </div>
+          </GradientCard>
 
-          {/* Business Benefits */}
-          <div>
-            <h3 className="text-2xl font-bold text-white mb-8">Vantaggi per le Aziende</h3>
-            <div className="space-y-6">
+          {/* Business Benefits Card */}
+          <GradientCard variant="blue" containerClassName="h-full">
+            <h3 className="text-2xl font-bold text-white mb-6">Vantaggi per le Aziende</h3>
+            <div className="space-y-4">
               {businessBenefits.map((benefit, index) => (
                 <div key={index} className="flex items-center space-x-3">
                   <CheckCircle className="w-5 h-5 text-blue-400 flex-shrink-0" />
-                  <span className="text-zinc-300">{benefit}</span>
+                  <span className="text-neutral-300">{benefit}</span>
                 </div>
               ))}
             </div>
-          </div>
+          </GradientCard>
         </div>
       </div>
     </section>

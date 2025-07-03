@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
+import { RegistrationModal } from "@/components/ui/registration-modal"
 import { Github, Twitter, Mail, MessageCircle } from "lucide-react"
 
 export function Footer() {
@@ -13,9 +13,9 @@ export function Footer() {
         <p className="text-neutral-400 mb-8 text-lg">
           Ti paghiamo €1 per iscriverti e fermare insieme il telemarketing selvaggio
         </p>
-        <Button size="lg" className="bg-emerald-500 hover:bg-emerald-600 text-white border-0">
+        <RegistrationModal triggerClassName="px-8 py-3 text-lg bg-emerald-500 hover:bg-emerald-600 text-white border-0 rounded-lg font-medium transition-all duration-200">
           Registrati Gratis
-        </Button>
+        </RegistrationModal>
       </div>
 
       {/* Main Footer */}

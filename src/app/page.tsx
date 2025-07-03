@@ -3,14 +3,15 @@ import { Metadata } from "next"
 
 // Static content components (SSR)
 import { HeroContent } from "@/components/content/hero-content"
-import { FeaturesContent } from "@/components/content/features-content"
+import { FeaturesContentV2 } from "@/components/content/features-content-v2"
 import { StatsContent } from "@/components/content/stats-content"
 import { BenefitsContent } from "@/components/content/benefits-content"
 import { CTAContent } from "@/components/content/cta-content"
+import { MarketingComparisonContent } from "@/components/content/marketing-comparison-content"
 
 // Dynamic animated components (Client-side)
 import { AnimatedHero } from "@/components/interactive/animated-hero"
-import { AnimatedFeatures } from "@/components/interactive/animated-features"
+import { AnimatedFeaturesV2 } from "@/components/interactive/animated-features-v2"
 import { AnimatedStats } from "@/components/interactive/animated-stats"
 import { AnimatedBenefits } from "@/components/interactive/animated-benefits"
 import { AnimatedCTA } from "@/components/interactive/animated-cta"
@@ -58,7 +59,7 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden professional-bg subtle-grid">
+    <div className="min-h-screen bg-black text-white professional-bg subtle-grid">
       
       {/* Hero Section - SSR with Client Enhancement */}
       <noscript>
@@ -77,11 +78,17 @@ export default function HomePage() {
 
       {/* Features Section */}
       <noscript>
-        <FeaturesContent />
+        <section className="py-24 px-4 sm:px-6 lg:px-8">
+          <FeaturesContentV2 />
+        </section>
       </noscript>
       
-      <Suspense fallback={<FeaturesContent />}>
-        <AnimatedFeatures />
+      <Suspense fallback={
+        <section className="py-24 px-4 sm:px-6 lg:px-8">
+          <FeaturesContentV2 />
+        </section>
+      }>
+        <AnimatedFeaturesV2 />
       </Suspense>
 
       {/* Problem Stats Section */}
@@ -92,6 +99,11 @@ export default function HomePage() {
       <Suspense fallback={<StatsContent />}>
         <AnimatedStats />
       </Suspense>
+
+      {/* Marketing Comparison Section */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8">
+        <MarketingComparisonContent />
+      </section>
 
       {/* Benefits Section */}
       <noscript>

@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+import { RegistrationModal } from "@/components/ui/registration-modal"
 import { 
   MessageCircle,
   ArrowRight
@@ -17,13 +17,12 @@ export function HeroContent({}: HeroContentProps) {
         {/* Left Column - Content */}
         <div className="space-y-6">
           
-          <Badge className="px-3 py-1 text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-full w-fit">
-            💰 TI PAGHIAMO €1 PER ISCRIVERTI!
+          <Badge className="px-4 py-1.5 text-sm font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-full w-fit">
+            Ti paghiamo €1 per iscriverti
           </Badge>
           
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-white">
-            Stop al<br />
-            <span className="text-red-400">Telemarketing Selvaggio</span>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight leading-tight text-white">
+            Stop al <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-500">Telemarketing Selvaggio</span>
           </h1>
           
           <p className="text-lg text-zinc-400 leading-relaxed max-w-xl">
@@ -32,14 +31,14 @@ export function HeroContent({}: HeroContentProps) {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
-            <Button className="h-12 px-8 bg-emerald-500 hover:bg-emerald-600 text-white rounded-lg font-medium transition-all duration-200">
+            <RegistrationModal triggerClassName="h-12 px-8 bg-emerald-500 hover:bg-emerald-600 text-white rounded-lg font-medium transition-all duration-200">
               <MessageCircle className="w-4 h-4 mr-2" />
               Registrati Ora
               <ArrowRight className="w-4 h-4 ml-2" />
-            </Button>
+            </RegistrationModal>
             
             <div className="flex items-center text-sm text-zinc-500">
-              🎯 4.247 utenti già registrati
+              <span className="mr-2">•</span> 4.247 utenti già registrati
             </div>
           </div>
 

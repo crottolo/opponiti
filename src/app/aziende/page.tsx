@@ -5,7 +5,7 @@ import { Metadata } from "next"
 import { BusinessHeroContent } from "@/components/content/business-hero-content"
 import { BusinessFeaturesContent } from "@/components/content/business-features-content"
 import { BenefitsContent } from "@/components/content/benefits-content"
-import { PricingContent } from "@/components/content/pricing-content"
+import { PricingContentV2 } from "@/components/content/pricing-content-v2"
 
 // Dynamic animated components (Client-side)
 import { AnimatedBenefits } from "@/components/interactive/animated-benefits"
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
 
 export default function AziendePage() {
   return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden professional-bg subtle-grid">
+    <div className="min-h-screen bg-black text-white professional-bg subtle-grid">
       
       {/* Hero Section - SSR with Client Enhancement */}
       <noscript>
@@ -93,11 +93,19 @@ export default function AziendePage() {
 
       {/* Pricing Section */}
       <noscript>
-        <PricingContent />
+        <section className="py-24 px-4 sm:px-6 lg:px-8">
+          <PricingContentV2 />
+        </section>
       </noscript>
       
-      <Suspense fallback={<PricingContent />}>
-        <PricingContent />
+      <Suspense fallback={
+        <section className="py-24 px-4 sm:px-6 lg:px-8">
+          <PricingContentV2 />
+        </section>
+      }>
+        <section className="py-24 px-4 sm:px-6 lg:px-8">
+          <PricingContentV2 />
+        </section>
       </Suspense>
 
       {/* Final CTA */}

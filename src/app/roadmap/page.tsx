@@ -1,8 +1,8 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { CardSpotlight } from "@/components/ui/card-spotlight"
+import { RegistrationModal } from "@/components/ui/registration-modal"
 import { motion } from "framer-motion"
 import { 
   Shield,
@@ -33,7 +33,7 @@ const staggerContainer = {
 
 export default function RoadmapPage() {
   return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden professional-bg subtle-grid">
+    <div className="min-h-screen bg-black text-white professional-bg subtle-grid">
       
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8">
@@ -106,11 +106,11 @@ export default function RoadmapPage() {
                   </div>
 
                   <div className="text-center">
-                    <Button className="bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-2 rounded-lg font-medium transition-all duration-200">
+                    <RegistrationModal triggerClassName="bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-2 rounded-lg font-medium transition-all duration-200">
                       <MessageCircle className="w-4 h-4 mr-2" />
                       Aiutaci a raggiungere 300.000
                       <ArrowRight className="w-4 h-4 ml-2" />
-                    </Button>
+                    </RegistrationModal>
                   </div>
                 </div>
               </CardSpotlight>
@@ -255,11 +255,11 @@ export default function RoadmapPage() {
                   Senza il supporto di 300.000 italiani, questo rimane solo un sogno. 
                   Con il tuo aiuto, diventa realtà.
                 </p>
-                <Button className="bg-emerald-500 hover:bg-emerald-600 text-white px-8 py-3 rounded-lg font-medium transition-all duration-200">
+                <RegistrationModal triggerClassName="bg-emerald-500 hover:bg-emerald-600 text-white px-8 py-3 rounded-lg font-medium transition-all duration-200">
                   <MessageCircle className="w-5 h-5 mr-2" />
                   Iscriviti e Aiutaci a Partire
                   <ArrowRight className="w-5 h-5 ml-2" />
-                </Button>
+                </RegistrationModal>
               </div>
             </CardSpotlight>
           </motion.div>

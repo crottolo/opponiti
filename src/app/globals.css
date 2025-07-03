@@ -28,6 +28,10 @@ body {
   overflow-x: hidden;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 /* Professional Background */
 .professional-bg {
   background: linear-gradient(to bottom, #000000 0%, #0a0a0a 50%, #000000 100%);
