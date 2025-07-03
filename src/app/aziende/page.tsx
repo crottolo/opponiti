@@ -1,9 +1,8 @@
 "use client"
 
-import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { CardSpotlight } from "@/components/ui/card-spotlight"
 import { motion } from "framer-motion"
 import { 
   Shield, 
@@ -14,11 +13,13 @@ import {
   BarChart3,
   Lock,
   Crown,
-  Briefcase
+  CheckCircle,
+  ArrowRight,
+  Mail
 } from "lucide-react"
 
 const fadeInUp = {
-  initial: { opacity: 0, y: 60 },
+  initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
   transition: { duration: 0.6 }
 }
@@ -33,298 +34,348 @@ const staggerContainer = {
 
 export default function AziendePage() {
   return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden">
-      {/* Animated Background */}
-      <div className="fixed inset-0 z-0">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-2000"></div>
-      </div>
-
-      {/* Navigation */}
-      <motion.nav 
-        className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-xl border-b border-gray-800/50"
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Link href="/" className="flex items-center space-x-3">
-              <motion.div 
-                className="w-10 h-10 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center shadow-2xl"
-                whileHover={{ 
-                  boxShadow: "0 0 30px rgba(239, 68, 68, 0.8)",
-                  scale: 1.1 
-                }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <Shield className="w-6 h-6 text-white" />
-              </motion.div>
-              <span className="text-2xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-                Opponiti
-              </span>
-              <Badge className="bg-blue-500/20 text-blue-400 border-blue-500/30">
-                Business
-              </Badge>
-            </Link>
-            <div className="hidden md:flex items-center space-x-8">
-              <Link href="/" className="text-gray-300 hover:text-emerald-400 transition-colors font-medium">Per Utenti</Link>
-              <a href="/roadmap" className="text-gray-300 hover:text-purple-400 transition-colors font-medium">Piano</a>
-              <a href="#prezzi" className="text-gray-300 hover:text-blue-400 transition-colors font-medium">Prezzi</a>
-              <a href="#contatti" className="text-gray-300 hover:text-purple-400 transition-colors font-medium">Contatti</a>
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white border-0 shadow-lg">
-                  Richiedi Demo
-                </Button>
-              </motion.div>
-            </div>
-          </div>
-        </div>
-      </motion.nav>
-
+    <div className="min-h-screen bg-black text-white overflow-x-hidden professional-bg subtle-grid">
+      
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="max-w-7xl mx-auto relative z-10">
+      <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto text-center">
           <motion.div 
-            className="text-center"
             variants={staggerContainer}
             initial="initial"
             animate="animate"
           >
             <motion.div variants={fadeInUp} className="mb-6">
-              <Badge className="px-6 py-3 text-lg font-bold bg-gradient-to-r from-blue-500 to-blue-600 text-white border-0 shadow-2xl">
-                🏆 CERTIFICAZIONE AZIENDALE
+              <Badge className="px-4 py-2 text-sm font-medium bg-blue-500/10 text-blue-400 border border-blue-500/20 rounded-full">
+                Certificazione Aziendale
               </Badge>
             </motion.div>
             
             <motion.h1 
               variants={fadeInUp}
-              className="text-6xl md:text-8xl font-black tracking-tight mb-6"
+              className="text-4xl md:text-6xl font-bold tracking-tight mb-6 leading-tight"
             >
-              <span className="bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">
+              <span className="text-white">
                 Distinguiti dalla
               </span>
               <br />
-              <span className="bg-gradient-to-r from-blue-500 via-blue-400 to-blue-500 bg-clip-text text-transparent">
-                Concorrenza
-              </span>
-              <br />
-              <span className="bg-gradient-to-r from-emerald-500 via-emerald-400 to-emerald-500 bg-clip-text text-transparent">
-                Sleale
+              <span className="text-blue-400">
+                Concorrenza Sleale
               </span>
             </motion.h1>
             
             <motion.p 
               variants={fadeInUp}
-              className="text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed"
+              className="text-lg text-zinc-400 mb-12 max-w-2xl mx-auto leading-relaxed"
             >
-              Certifica la tua azienda su Opponiti e <span className="font-semibold text-white">ottieni la spunta verde</span> per 
-              tutte le tue chiamate legittime. <span className="font-semibold text-white">Proteggi la tua reputazione</span> e aumenta la fiducia dei clienti.
+              Certifica la tua azienda su Opponiti e ottieni la spunta verde per 
+              tutte le tue chiamate legittime. Proteggi la tua reputazione e aumenta la fiducia dei clienti.
             </motion.p>
 
-            <motion.div 
-              variants={fadeInUp}
-              className="mb-12 p-8 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-3xl max-w-4xl mx-auto border border-blue-500/30 backdrop-blur-sm"
-            >
-              <div className="flex items-center justify-center mb-4">
-                <Crown className="w-8 h-8 text-yellow-400 mr-3" />
-                <h3 className="text-3xl font-bold text-blue-400">Telemarketing Legale Premiato</h3>
-                <Crown className="w-8 h-8 text-yellow-400 ml-3" />
-              </div>
-              <p className="text-lg text-blue-100">
-                Le aziende certificate ottengono <span className="font-bold text-white">maggiore fiducia</span>, 
-                <span className="font-bold text-white"> tassi di risposta più alti</span> e protezione dalla concorrenza sleale.
-              </p>
+            {/* Value Proposition */}
+            <motion.div variants={fadeInUp} className="mb-12">
+              <CardSpotlight className="border-neutral-700 bg-neutral-950/90 max-w-3xl mx-auto">
+                <div className="relative z-20 p-8 text-center">
+                  <div className="inline-flex items-center px-3 py-1 rounded-full bg-yellow-500/10 border border-yellow-500/20 mb-6">
+                    <Crown className="w-4 h-4 text-yellow-400 mr-2" />
+                    <span className="text-xs font-medium text-yellow-400">TELEMARKETING LEGALE PREMIATO</span>
+                  </div>
+                  <p className="text-white">
+                    Le aziende certificate ottengono <span className="text-blue-400">maggiore fiducia</span>, 
+                    <span className="text-emerald-400"> tassi di risposta più alti</span> e protezione dalla concorrenza sleale.
+                  </p>
+                </div>
+              </CardSpotlight>
             </motion.div>
 
-            <motion.div 
-              variants={staggerContainer}
-              className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto"
-            >
-              {[
-                { icon: ShieldCheck, title: "Spunta Verde", desc: "Identificazione automatica per tutte le chiamate", color: "emerald" },
-                { icon: BarChart3, title: "Analytics Avanzate", desc: "Metriche dettagliate su performance e reputazione", color: "blue" },
-                { icon: Lock, title: "Compliance Garantita", desc: "Supporto legale e conformità GDPR", color: "purple" }
-              ].map((item, index) => (
-                <motion.div key={index} variants={fadeInUp}>
-                  <motion.div
-                    whileHover={{ 
-                      scale: 1.05,
-                      boxShadow: item.color === 'emerald' 
-                        ? "0 20px 40px rgba(16, 185, 129, 0.3)" 
-                        : item.color === 'blue' 
-                        ? "0 20px 40px rgba(59, 130, 246, 0.3)"
-                        : "0 20px 40px rgba(147, 51, 234, 0.3)"
-                    }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                  >
-                    <Card className="h-full bg-gray-900/60 backdrop-blur-xl border-gray-700/50 shadow-xl hover:border-gray-600/70 transition-all duration-300">
-                      <CardContent className="p-8 text-center">
-                        <div className={`w-16 h-16 mx-auto mb-4 rounded-2xl flex items-center justify-center 
-                          ${item.color === 'emerald' ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' : 
-                            item.color === 'blue' ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30' : 'bg-purple-500/20 text-purple-400 border border-purple-500/30'}`}>
-                          <item.icon className="w-8 h-8" />
-                        </div>
-                        <h3 className="text-xl font-semibold mb-2 text-white">{item.title}</h3>
-                        <p className="text-gray-400">{item.desc}</p>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                </motion.div>
-              ))}
+            {/* CTA */}
+            <motion.div variants={fadeInUp} className="mb-20">
+              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                <Button className="h-12 px-8 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium transition-all duration-200">
+                  <Mail className="w-4 h-4 mr-2" />
+                  Richiedi Demo
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </motion.div>
+              <p className="text-sm text-zinc-500 mt-3">
+                Consulenza gratuita per la tua azienda
+              </p>
             </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <section className="relative py-20 bg-gradient-to-b from-gray-900/50 to-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      {/* Features Section */}
+      <section className="section-divider py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
           <motion.div 
             className="text-center mb-16"
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-5xl md:text-6xl font-black mb-6">
-              Perché <span className="bg-gradient-to-r from-emerald-400 to-emerald-600 bg-clip-text text-transparent">Certificarsi</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Cosa Ottieni
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-zinc-400 max-w-2xl mx-auto">
+              I vantaggi concreti della certificazione per la tua azienda.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { 
+                icon: ShieldCheck, 
+                title: "Spunta Verde", 
+                description: "Identificazione automatica per tutte le tue chiamate con badge di fiducia"
+              },
+              { 
+                icon: BarChart3, 
+                title: "Analytics Avanzate", 
+                description: "Dashboard completa con metriche dettagliate su performance e reputazione"
+              },
+              { 
+                icon: Lock, 
+                title: "Compliance Garantita", 
+                description: "Supporto legale completo e conformità GDPR per operazioni sicure"
+              }
+            ].map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <CardSpotlight className="border-neutral-700 bg-neutral-950/90 h-full">
+                  <div className="relative z-20 p-6 text-center">
+                    <div className="w-12 h-12 mx-auto mb-4 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center">
+                      <feature.icon className="w-6 h-6 text-blue-400" />
+                    </div>
+                    <h3 className="text-lg font-semibold text-white mb-2">{feature.title}</h3>
+                    <p className="text-sm text-zinc-400">{feature.description}</p>
+                  </div>
+                </CardSpotlight>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="section-divider py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Perché Certificarsi
+            </h2>
+            <p className="text-zinc-400 max-w-2xl mx-auto">
               I vantaggi concreti per la tua azienda e i tuoi clienti.
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-12">
+            {/* Benefits List */}
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
+              initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-3xl font-bold text-white mb-8">Vantaggi per le Aziende</h3>
+              <h3 className="text-2xl font-bold text-white mb-8">Vantaggi per le Aziende</h3>
               <div className="space-y-6">
                 {[
-                  { 
-                    title: "Riconoscimento del Lavoro Regolare", 
-                    desc: "Premio e valorizzazione per call center che operano in modo etico e trasparente",
-                    icon: Award,
-                    color: "emerald"
-                  },
-                  { 
-                    title: "Protezione Brand Identity", 
-                    desc: "Tutela contro truffe che usano il tuo nome aziendale per ingannare i clienti",
-                    icon: ShieldCheck,
-                    color: "blue"
-                  },
-                  { 
-                    title: "Maggiore Fiducia e Performance", 
-                    desc: "Tassi di risposta +40% grazie alla spunta verde di certificazione",
-                    icon: TrendingUp,
-                    color: "purple"
-                  },
-                  { 
-                    title: "Costi Call Center Ottimizzati", 
-                    desc: "Gestire un call center regolare ha costi elevati - noi premiamo chi lo fa bene",
-                    icon: Building2,
-                    color: "yellow"
-                  }
+                  "Riconoscimento del lavoro regolare",
+                  "Protezione brand identity",
+                  "Maggiore fiducia e performance",
+                  "Costi call center ottimizzati"
                 ].map((benefit, index) => (
-                  <motion.div 
-                    key={index}
-                    className="flex items-start space-x-4 p-4 rounded-xl bg-gray-900/40 border border-gray-700/30 hover:border-gray-600/50 transition-all duration-300"
-                    whileHover={{ x: 10, scale: 1.02 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                  >
-                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg
-                      ${benefit.color === 'emerald' ? 'bg-gradient-to-r from-emerald-500 to-emerald-600' :
-                        benefit.color === 'blue' ? 'bg-gradient-to-r from-blue-500 to-blue-600' :
-                        benefit.color === 'purple' ? 'bg-gradient-to-r from-purple-500 to-purple-600' :
-                        'bg-gradient-to-r from-yellow-500 to-yellow-600'}`}>
-                      <benefit.icon className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-white text-lg mb-2">{benefit.title}</h4>
-                      <p className="text-gray-400">{benefit.desc}</p>
-                    </div>
-                  </motion.div>
+                  <div key={index} className="flex items-center space-x-3">
+                    <CheckCircle className="w-5 h-5 text-emerald-400 flex-shrink-0" />
+                    <span className="text-zinc-300">{benefit}</span>
+                  </div>
                 ))}
               </div>
             </motion.div>
 
+            {/* ROI Metrics */}
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
+              initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <Card className="p-8 bg-gradient-to-br from-gray-900/80 to-purple-900/20 backdrop-blur-xl border-gray-700/50 shadow-2xl">
-                <CardHeader className="text-center pb-6">
-                  <CardTitle className="text-2xl text-white flex items-center justify-center">
-                    <Briefcase className="w-6 h-6 text-purple-400 mr-2" />
-                    ROI della Certificazione
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  <div className="grid grid-cols-2 gap-4 text-center">
-                    <div className="p-4 bg-blue-500/20 rounded-lg border border-blue-500/30">
-                      <div className="text-3xl font-bold text-blue-400">+40%</div>
-                      <p className="text-sm text-gray-300">Tasso risposta</p>
-                    </div>
-                    <div className="p-4 bg-emerald-500/20 rounded-lg border border-emerald-500/30">
-                      <div className="text-3xl font-bold text-emerald-400">+25%</div>
-                      <p className="text-sm text-gray-300">Conversioni</p>
-                    </div>
-                    <div className="p-4 bg-purple-500/20 rounded-lg border border-purple-500/30">
-                      <div className="text-3xl font-bold text-purple-400">-60%</div>
-                      <p className="text-sm text-gray-300">Reclami</p>
-                    </div>
-                    <div className="p-4 bg-yellow-500/20 rounded-lg border border-yellow-500/30">
-                      <div className="text-3xl font-bold text-yellow-400">+15%</div>
-                      <p className="text-sm text-gray-300">Fatturato</p>
-                    </div>
+              <CardSpotlight className="border-neutral-700 bg-neutral-950/90">
+                <div className="relative z-20 p-8">
+                  <h3 className="text-2xl font-bold text-white mb-8 text-center">ROI della Certificazione</h3>
+                  <div className="grid grid-cols-2 gap-6">
+                    {[
+                      { value: "+40%", label: "Tasso risposta" },
+                      { value: "+25%", label: "Conversioni" },
+                      { value: "-60%", label: "Reclami" },
+                      { value: "+15%", label: "Fatturato" }
+                    ].map((metric, index) => (
+                      <div key={index} className="text-center">
+                        <div className="text-2xl font-bold text-emerald-400 mb-1">{metric.value}</div>
+                        <p className="text-xs text-zinc-400">{metric.label}</p>
+                      </div>
+                    ))}
                   </div>
-                  <div className="mt-6 p-4 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg border border-blue-500/30">
-                    <p className="text-center font-bold text-white">
+                  <div className="mt-6 p-4 bg-emerald-500/10 rounded-lg border border-emerald-500/20 text-center">
+                    <p className="text-emerald-400 font-medium">
                       Investimento che si ripaga in 2-3 mesi!
                     </p>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </CardSpotlight>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer id="contatti" className="relative bg-gray-900 text-white py-16 border-t border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center">
-            <Link href="/" className="flex items-center justify-center space-x-3 mb-6">
-              <motion.div 
-                className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center shadow-2xl"
-                whileHover={{ 
-                  boxShadow: "0 0 30px rgba(239, 68, 68, 0.8)",
-                  scale: 1.1 
-                }}
-              >
-                <Shield className="w-7 h-7 text-white" />
-              </motion.div>
-              <span className="text-3xl font-bold">Opponiti</span>
-              <Badge className="bg-blue-500/20 text-blue-400 border-blue-500/30">
-                Business
-              </Badge>
-            </Link>
-            <p className="text-gray-400 max-w-2xl mx-auto mb-8">
-              La piattaforma di certificazione per aziende di telemarketing responsabile.
+      {/* Pricing Section */}
+      <section className="section-divider py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Piani di Certificazione
+            </h2>
+            <p className="text-zinc-400 max-w-2xl mx-auto">
+              Scegli il piano più adatto alle dimensioni della tua azienda.
             </p>
-            <div className="border-t border-gray-800 pt-8">
-              <p className="text-gray-500">&copy; 2025 Opponiti Business. Tutti i diritti riservati.</p>
-            </div>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                name: "Starter",
+                price: "€99",
+                period: "/mese",
+                description: "Per piccole aziende",
+                features: [
+                  "Certificazione base",
+                  "Spunta verde",
+                  "Analytics basic",
+                  "Supporto email"
+                ]
+              },
+              {
+                name: "Professional",
+                price: "€299",
+                period: "/mese",
+                description: "Per aziende medie",
+                features: [
+                  "Tutto di Starter",
+                  "Analytics avanzate",
+                  "Supporto prioritario",
+                  "API access",
+                  "Custom branding"
+                ],
+                popular: true
+              },
+              {
+                name: "Enterprise",
+                price: "€799",
+                period: "/mese",
+                description: "Per grandi aziende",
+                features: [
+                  "Tutto di Professional",
+                  "Supporto dedicato",
+                  "SLA garantito",
+                  "Integrazione custom",
+                  "Report personalizzati"
+                ]
+              }
+            ].map((plan, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <CardSpotlight className={`border-neutral-700 bg-neutral-950/90 h-full ${plan.popular ? 'ring-2 ring-blue-500/50' : ''}`}>
+                  <div className="relative z-20 p-6">
+                    {plan.popular && (
+                      <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                        <Badge className="bg-blue-500 text-white border-0">
+                          Più Popolare
+                        </Badge>
+                      </div>
+                    )}
+                    
+                    <div className="text-center mb-6">
+                      <h3 className="text-xl font-bold text-white mb-2">{plan.name}</h3>
+                      <p className="text-sm text-zinc-400 mb-4">{plan.description}</p>
+                      <div className="flex items-baseline justify-center">
+                        <span className="text-3xl font-bold text-white">{plan.price}</span>
+                        <span className="text-sm text-zinc-400 ml-1">{plan.period}</span>
+                      </div>
+                    </div>
+
+                    <div className="space-y-3 mb-6">
+                      {plan.features.map((feature, featureIndex) => (
+                        <div key={featureIndex} className="flex items-center space-x-3">
+                          <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                          <span className="text-sm text-zinc-300">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <Button 
+                      className={`w-full ${plan.popular ? 'bg-blue-500 hover:bg-blue-600' : 'bg-neutral-800 hover:bg-neutral-700'} text-white rounded-lg transition-all duration-200`}
+                    >
+                      Scegli {plan.name}
+                    </Button>
+                  </div>
+                </CardSpotlight>
+              </motion.div>
+            ))}
           </div>
         </div>
-      </footer>
+      </section>
+
+      {/* Final CTA */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <CardSpotlight className="border-neutral-700 bg-neutral-950/90">
+              <div className="relative z-20 p-8 text-center">
+                <h2 className="text-3xl font-bold text-white mb-4">
+                  Pronto per Iniziare?
+                </h2>
+                <p className="text-zinc-400 mb-8 max-w-2xl mx-auto">
+                  Ottieni la certificazione e distinguiti dalla concorrenza sleale. Consulenza gratuita inclusa.
+                </p>
+                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                  <Button className="h-12 px-8 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium transition-all duration-200">
+                    <Mail className="w-4 h-4 mr-2" />
+                    Richiedi Demo Gratuita
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </motion.div>
+              </div>
+            </CardSpotlight>
+          </motion.div>
+        </div>
+      </section>
     </div>
   );
 }
