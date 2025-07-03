@@ -118,7 +118,7 @@ const ModalBody = ({
             opacity: 0,
             backdropFilter: "blur(0px)",
           }}
-          className="fixed [perspective:800px] [transform-style:preserve-3d] inset-0 h-full w-full flex items-center justify-center z-[999999]"
+          className="fixed [perspective:800px] [transform-style:preserve-3d] inset-0 h-[100dvh] w-full flex items-center justify-center z-[999999]"
           style={{ zIndex: 999999 }}
         >
           <Overlay />
@@ -126,7 +126,7 @@ const ModalBody = ({
           <motion.div
             ref={modalRef}
             className={cn(
-              "w-full max-w-2xl max-h-[95vh] bg-white dark:bg-neutral-950 border border-transparent dark:border-neutral-800 md:rounded-2xl relative z-[1000000] flex flex-col overflow-hidden mx-4",
+              "w-full max-w-2xl max-h-[90dvh] bg-white dark:bg-neutral-950 border border-transparent dark:border-neutral-800 md:rounded-2xl relative z-[1000000] flex flex-col overflow-hidden mx-4",
               className
             )}
             style={{ zIndex: 1000000 }}
@@ -193,7 +193,7 @@ const Overlay = ({ className }: { className?: string }) => {
         opacity: 0,
         backdropFilter: "blur(0px)",
       }}
-      className={`fixed inset-0 h-full w-full bg-black bg-opacity-95 z-[999998] ${className}`}
+      className={`fixed inset-0 h-[100dvh] w-full bg-black bg-opacity-95 z-[999998] ${className}`}
       style={{ zIndex: 999998 }}
     ></motion.div>
   );
@@ -204,7 +204,7 @@ const CloseIcon = () => {
   return (
     <button
       onClick={() => setOpen(false)}
-      className="absolute top-4 right-4 group"
+      className="absolute top-4 right-4 group z-[1000001] bg-white/80 dark:bg-black/80 backdrop-blur-sm rounded-full p-2 md:bg-transparent md:dark:bg-transparent md:backdrop-blur-none md:p-0"
     >
       <X className="h-4 w-4 text-black dark:text-white group-hover:scale-125 group-hover:rotate-3 transition duration-200" />
     </button>
