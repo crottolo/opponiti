@@ -42,5 +42,9 @@ next-env.d.ts
 
 # claude and project files
 .claude/
+.claude/*
 CLAUDE.md
 PROGETTO_OPPONITI.md
+
+# vscode
+.vscode/
