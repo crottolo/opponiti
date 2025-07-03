@@ -1,7 +1,15 @@
 {
   "permissions": {
     "allow": [
-      "Bash(pnpm add:*)"
+      "Bash(pnpm add:*)",
+      "mcp__context7__get-library-docs",
+      "Bash(npm i:*)",
+      "Bash(pnpm lint:*)",
+      "mcp__browsermcp__browser_navigate",
+      "mcp__browsermcp__browser_screenshot",
+      "mcp__context7__resolve-library-id",
+      "WebFetch(domain:ui.aceternity.com)",
+      "Bash(git checkout:*)"
     ],
     "deny": []
   }
