@@ -1,4 +1,4 @@
-import { FocusCards } from "@/components/ui/focus-cards"
+// import { FocusCards } from "@/components/ui/focus-cards"
 import { Check, X } from "lucide-react"
 
 interface MarketingComparisonContentProps {
@@ -6,20 +6,20 @@ interface MarketingComparisonContentProps {
 }
 
 export function MarketingComparisonContent({}: MarketingComparisonContentProps) {
-  const comparisons = [
-    {
-      title: "Marketing Tradizionale",
-      src: "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2074&auto=format&fit=crop",
-    },
-    {
-      title: "Marketing Rivoluzionario", 
-      src: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2070&auto=format&fit=crop",
-    },
-    {
-      title: "Il Futuro è Qui",
-      src: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?q=80&w=2070&auto=format&fit=crop",
-    }
-  ]
+  // const comparisons = [
+  //   {
+  //     title: "Marketing Tradizionale",
+  //     src: "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2074&auto=format&fit=crop",
+  //   },
+  //   {
+  //     title: "Marketing Rivoluzionario", 
+  //     src: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2070&auto=format&fit=crop",
+  //   },
+  //   {
+  //     title: "Il Futuro è Qui",
+  //     src: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?q=80&w=2070&auto=format&fit=crop",
+  //   }
+  // ]
 
   return (
     <div>
