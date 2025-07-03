@@ -9,7 +9,7 @@ interface HeroContentProps {
   animated?: boolean
 }
 
-export function HeroContent({ animated = false }: HeroContentProps) {
+export function HeroContent({}: HeroContentProps) {
   return (
     <div className="max-w-7xl mx-auto">
       <div className="grid lg:grid-cols-2 gap-16 items-center">

@@ -162,7 +162,7 @@ export default function RoadmapPage() {
                 goal: "App funzionante", 
                 status: "locked",
                 icon: Smartphone,
-                description: "Sviluppare la prima versione dell'applicazione"
+                description: "Sviluppare la prima versione dell&apos;applicazione"
               },
               { 
                 phase: "Fase 4", 
@@ -276,7 +276,7 @@ export default function RoadmapPage() {
             <span className="text-xl font-bold text-white">Opponiti</span>
           </div>
           <p className="text-zinc-400 mb-6">
-            Il piano per liberare l'Italia dal telemarketing selvaggio. Una fase alla volta, un goal alla volta.
+            Il piano per liberare l&apos;Italia dal telemarketing selvaggio. Una fase alla volta, un goal alla volta.
           </p>
           <p className="text-sm text-zinc-500">
             © 2025 Opponiti. Il futuro inizia quando raggiungiamo 300.000 registrazioni.
